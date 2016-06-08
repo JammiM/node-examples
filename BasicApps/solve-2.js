@@ -1,3 +1,5 @@
+//This file call the node module "rectangle-2.js"
+
 var rect = require('./rectangle-2');
 
 function solveRect(l,b) {
