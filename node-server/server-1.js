@@ -5,11 +5,11 @@ var http = require('http');
 var hostname = 'localhost';
 var port = 3000;
 
-var server = http.createServer(function(req, res){
+var server = http.createServer(function(requestMessage, responseMessage){
 
-  console.log(req.headers);
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.end('<html><body><h1>Hello World</h1></body></html>');
+  console.log(requestMessage.headers);
+  responseMessage.writeHead(200, { 'Content-Type': 'text/html' });
+  responseMessage.end('<html><body><h1>Hello World</h1></body></html>');
 
   })
 
