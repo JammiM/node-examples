@@ -1,6 +1,9 @@
 //This file call the node module "rectangle-2.js"
 //Command file arguments are accepted with the use of the yargs node module
 
+//To use this command use:
+// node solve-3 --l=3 --b=5
+
 var argv = require('yargs')
     .usage('Usage: node $0 --l=[num] --b=[num]')
     .demand(['l','b'])
