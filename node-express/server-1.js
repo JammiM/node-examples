@@ -1,3 +1,5 @@
+//Basic Hello world version of the Express that just returns the same result.
+
 var express = require('express'), http = require('http');
 
 var hostname = 'localhost';
@@ -14,6 +16,7 @@ app.use(function (req, res, next) {
 
 var server = http.createServer(app);
 
+//server.listen simply starts the server
 server.listen(port, hostname, function(){
   console.log(`Server running at http://${hostname}:${port}/`);
 });
