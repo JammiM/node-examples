@@ -3,6 +3,9 @@
 	Listens on port 1300
 */
 
+const port = 1300;
+
+
 // Loading the modules
 const http = require('http');
 const url = require('url');
@@ -21,6 +24,7 @@ const mimeTypes = {
 
 
 http.createServer(function(request, response){
+
 	var uri = url.parse(request.url).pathname;
 	var fileName = path.join(process.cwd(), unescape(uri));
 	console.log('Loading '+ uri);
@@ -29,6 +33,7 @@ http.createServer(function(request, response){
 	try{
 		stats = fs.lstatSync(fileName);
 	} catch(e){
+		// If it doesn't find the file, it sends a 404
 		response.writeHead(404, {'Content-type': 'text/plain'});
 		response.write('404 Not Found\n');
 		response.end();
@@ -36,7 +41,7 @@ http.createServer(function(request, response){
 	}
 
 	if(stats.isFile()){
-		
+		// If there is a file
 		var mimeType = mimeTypes[path.extname(fileName).split(".").reverse()[0]];
 		response.writeHead(200, {'Content-type': mimeType});
 
@@ -46,7 +51,7 @@ http.createServer(function(request, response){
 
 	} else if(stats.isDirectory()) {
 		// If it's just a folder then open a file called "index.html" 
-		response.writeHead(302, { 'Location' : 'index.html' });
+		response.writeHead(302, { 'Location' : 'index.html' }); // Location refers to a redirect, thus opening index.html automatically.
 		response.end();
 	} else {
 
@@ -56,4 +61,4 @@ http.createServer(function(request, response){
 
 	}
 
-}).listen(1300); // http.createServer
+}).listen(port); // http.createServer

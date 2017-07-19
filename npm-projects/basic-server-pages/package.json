@@ -1,7 +1,7 @@
 {
-  "name": "basic-server",
+  "name": "basic-server-pages",
   "version": "1.0.0",
-  "description": "A very basic server",
+  "description": "A very basic server, that serves pages.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
