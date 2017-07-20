@@ -6,7 +6,7 @@ html(lang='en')
     title Jumbotron Template for Bootstrap
     link(href='assets/bootstrap.min.css', rel='stylesheet')
   body
-    nav.navbar.navbar-inverse.navbar-fixed-top
+    nav.navbar.navbar-inverse
       .container
         .navbar-header
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
@@ -21,6 +21,8 @@ html(lang='en')
               a(href='/') Home
             li
               a(href='/about') About
+            li
+              a(href='/contact') Contact Us
         // /.nav-collapse
     block content
     hr

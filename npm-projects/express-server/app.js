@@ -30,12 +30,47 @@ app.get('/about', function (request, response) {
 });
 
 
+app.get('/contact', function (request, response) {
+	response.render('contact');
+});
+
+
+
+app.post('/contact/send', function (request, response) {
+	console.log('test');
+	let transporter = nodeMailer.createTransport({
+		service: 'Gmail',
+		auth: {
+			user: 'blah@gmail.com',  // user's email
+			pass: ''  // user's password
+		}
+	});
+	//response.render('contact');
+
+	let mailOptions = {
+		from: 'James <blah@gmail.com>',  // user's email
+		to : '',
+		subject: 'Website Submission',
+		message: 'blah blah Name: ' +request.body.name+'Email: '+request.body.email+ 'Message: ' + request.body.message,
+		html: '<p>blah blah</p><ul><li>Name: '+request.body.name  +'</li><li>Email: '+request.body.email +'</li><li>Message: ' + request.body.message+'</li></ul>'
+	};
+
+
+	transporter.sendMail(mailOptions, function(error, information){
+		if(error){
+			console.log(error);
+			response.redirect('/');
+		} else {
+			console.log('Message Sent: ' + information.response);
+			response.redirect('/');
+		}
+	});
+
+});
+
+
 //Creating a 'route' for / (the home page)
 app.get('/', function (request, response) {
-	
-	// logs to the server 
-	//console.log('Hello World')
-
 	//	logs to the client
 	response.render('index', { title: 'Welcome'});
 
