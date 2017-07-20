@@ -1,0 +1,17 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "Basic Express server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James M",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "^4.15.3",
+    "nodemailer": "^4.0.1",
+    "pug": "^0.1.0"
+  }
+}
